@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -170,5 +172,66 @@ function generateHTML(data) {
             zoom: .75; 
           } 
          }
-      </style>`
-        }
+      </style>
+      </head>
+
+      <body>
+      <div class="wrapper">
+          <div class="photo-header">
+              <img src="${data.img}" alt="Avatar">
+              <h5>${data.login}</h5>
+              <h1>Hi!</h1>
+              <h1>My name is ${data.name}</h1>
+              <h3>${data.bio}</h3>
+              <div class="links-nav">
+                  <a class="nav-link" target="_blank" href="${data.map}"> 
+                      <i class="fas fa-location-arrow"></i>
+                      <span>${data.location}</span>
+                  </a>
+                  <a class="nav-link" target="_blank" href="${data.url}">
+                      <i class="fab fa-github"></i>
+                      <span>Github</span>
+                  </a>
+                  <a class="nav-link" target="_blank" href="${data.blog}">
+                      <i class="fas fa-rss-square"></i>
+                      <span>Blog</span>
+                  </a>
+              </div>
+          </div>
+<main>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3>I build things and teach people to code</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col card">
+                        <h3>Public Repositories</h3>
+                        <h5>${data.publicRepos}</h5>
+                    </div>
+                    <div class="col card">
+                        <h3>Followers</h3>
+                        <h5>${data.followers}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col card">
+                        <h3>Github Stars</h3>
+                        <h5>${data.stars}</h5>
+                    </div>
+                    <div class="col card">
+                        <h3>Following</h3>
+                        <h5>${data.following}</h5>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>`
+}
+module.exports = {
+  colors: colors,
+  generateHTML: generateHTML,
+}
