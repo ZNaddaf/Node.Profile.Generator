@@ -1,4 +1,5 @@
 const fs = require("fs");
+const index = require('./index.js');
 
 const colors = {
   green: {
@@ -27,7 +28,7 @@ const colors = {
   }
 };
 
-function generateHTML(data) {
+function HTMLGenerator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing) {
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -232,6 +233,6 @@ function generateHTML(data) {
 </html>`
 }
 module.exports = {
+  HTMLGenerator,
   colors: colors,
-  generateHTML: generateHTML,
 }
