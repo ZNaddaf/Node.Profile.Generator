@@ -8,7 +8,6 @@ const util = require("util");
 const axios = require("axios")
 const pdf = require('html-pdf');
 
-// const writeFileAsync = util.promisify(fs.writeFile);
 
 //======================================================================
 ///// Variables for Github query  
@@ -31,6 +30,8 @@ let userFollowing;
 
 inquirer
     .prompt([
+        // function promptUser() {
+        //     return inquirer.prompt([
         {
             type: "input",
             name: "github",
@@ -48,8 +49,9 @@ inquirer
                 "black"
             ]
         },
-
     ])
+    // }
+    // promptUser()
 
     //======================================================================
     ///// Function to query gitHub
@@ -63,12 +65,12 @@ inquirer
             ghQueryStars(queryStarUrl).then(function (responseStars) {
 
                 var options = { format: 'Letter' };
-                var rendered = HTMLGenerator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing);
+                var rendered = HTMLGenerator.Generator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing);
 
                 pdf.create(rendered, options).toFile(`./${userInput.username}.pdf`, function (err, res) {
                     if (err) return console.log(err);
                     console.log(res);
-                });
+                })
             })
         })
 
@@ -108,8 +110,6 @@ function ghQueryStars(queryStarUrl) {
             return responseStars.data.length;
         });
 };
-
-
 
 // promptUser()
 //     .then(function (answers) {

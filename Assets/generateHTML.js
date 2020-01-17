@@ -28,7 +28,7 @@ const colors = {
   }
 };
 
-function HTMLGenerator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing) {
+function Generator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing) {
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -55,7 +55,7 @@ function HTMLGenerator(userInput, response, responseStars, profileImg, gitHubUse
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: ${colors[userInput.color].wrapperBackground};
          padding-top: 100px;
          }
          body {
@@ -233,6 +233,6 @@ function HTMLGenerator(userInput, response, responseStars, profileImg, gitHubUse
 </html>`
 }
 module.exports = {
-  HTMLGenerator,
+  Generator,
   colors: colors,
 }
