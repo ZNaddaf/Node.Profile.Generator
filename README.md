@@ -68,4 +68,4 @@ THEN a PDF profile is generated
 
 Example generated PDF:
 <br>
-<img src="./assets/ScreenShot.png" width="300px">  
+<img src="assets/ScreenShot.png" width="300px">  
