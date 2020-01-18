@@ -77,7 +77,7 @@ function ghquery(queryUrl) {
                 userFollowing: (response.data.following)
             };
             if (!data.userCity) {
-                data.userCity = "Wandering Gypsy";
+                data.userCity = "Wandering Spirit";
             }
             if (!data.userBio) {
                 data.userBio = "Welcome to my Code!";
