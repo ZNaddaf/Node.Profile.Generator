@@ -4,8 +4,7 @@
 const fs = require("fs");
 const HTMLGenerator = require('./generateHTML');
 const inquirer = require("inquirer");
-const util = require("util");
-const axios = require("axios")
+const axios = require("axios").default;
 const pdf = require('html-pdf');
 
 
@@ -30,8 +29,6 @@ let userFollowing;
 
 inquirer
     .prompt([
-        // function promptUser() {
-        //     return inquirer.prompt([
         {
             type: "input",
             name: "github",
@@ -50,8 +47,6 @@ inquirer
             ]
         },
     ])
-    // }
-    // promptUser()
 
     //======================================================================
     ///// Function to query gitHub
@@ -61,16 +56,15 @@ inquirer
         const queryUrl = `https://api.github.com/users/${userInput.username}`;
         const queryStarUrl = `https://api.github.com/users/${userInput.username}/starred`;
 
-        ghquery(queryUrl).then(function (response) {
+        ghquery(queryUrl).then(function (data) {
             ghQueryStars(queryStarUrl).then(function (responseStars) {
 
                 var options = { format: 'Letter' };
-                var rendered = HTMLGenerator.Generator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing);
 
-                pdf.create(rendered, options).toFile(`./${userInput.username}.pdf`, function (err, res) {
+                pdf.create(getHTML(userInput, responseStars, data), options).toFile(`./${userInput.username}.pdf`, function (err, res) {
                     if (err) return console.log(err);
                     console.log(res);
-                })
+                });
             })
         })
 
@@ -81,25 +75,32 @@ inquirer
 //======================================================================
 
 function ghquery(queryUrl) {
-    console.log(queryUrl);
     return axios.get(queryUrl)
+
         .then(function (response) {
 
-            profileImg = (response.data.avatar_url + ".png");
-            gitHubUsername = (response.data.login);
-            userCity = (response.data.location);
-            userGitHubProfile = (response.data.html_url);
-            userBlog = (response.data.blog);
-            userBio = (response.data.bio);
-            userRepos = (response.data.public_repos);
-            userFollowers = (response.data.followers);
-            userFollowing = (response.data.following);
+            let data = {
 
-            return response;
+                profileImg = (response.data.avatar_url + ".png"),
+                gitHubUsername = (response.data.login),
+                userCity = (response.data.location),
+                userGitHubProfile = (response.data.html_url),
+                userBlog = (response.data.blog),
+                userBio = (response.data.bio),
+                userRepos = (response.data.public_repos),
+                userFollowers = (response.data.followers),
+                userFollowing = (response.data.following)
+            };
+
+            return data;
+
         });
 };
 
+//======================================================================
 ///// Here we get the user's Github stars
+//======================================================================
+
 
 function ghQueryStars(queryStarUrl) {
 
@@ -110,15 +111,3 @@ function ghQueryStars(queryStarUrl) {
             return responseStars.data.length;
         });
 };
-
-// promptUser()
-//     .then(function (answers) {
-//         const html = generateHTML(answers);
-//         return writeFileAsync("index.html", html);
-//     })
-//     .then(function () {
-//         console.log("Successfully wrote to index.html");
-//     })
-//     .catch(function (err) {
-//         console.log(err);
-//     });

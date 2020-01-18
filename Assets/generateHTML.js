@@ -28,7 +28,8 @@ const colors = {
   }
 };
 
-function Generator(userInput, response, responseStars, profileImg, gitHubUsername, userCity, userGitHubProfile, userBlog, userBio, userRepos, userFollowers, userFollowing) {
+function Generator(userInput, responseStars, data) {
+  console.log(data);
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
