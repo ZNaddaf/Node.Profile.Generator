@@ -45,7 +45,7 @@ function getHTML(userInput, responseStars, data) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
       <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
-      <title>Github Profile for: ${data.name}</title>
+      <title>Document</title>
   
       <style>
           @page {
@@ -156,7 +156,6 @@ function getHTML(userInput, responseStars, data) {
               padding: 10px;
               width: 95%;
               border-radius: 6px;
-              text-align: center;
           }
   
           .photo-header img {
@@ -175,7 +174,7 @@ function getHTML(userInput, responseStars, data) {
           }
   
           .photo-header h1,
-          .photo-header h2 .photo-header h5 {
+          .photo-header h2 {
               width: 100%;
               text-align: center;
           }
@@ -316,6 +315,7 @@ function getHTML(userInput, responseStars, data) {
   
   </html>`
 };
+
 
 
 module.exports = {

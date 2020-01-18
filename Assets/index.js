@@ -26,8 +26,7 @@ inquirer
                 "green",
                 "blue",
                 "pink",
-                "red",
-                "black"
+                "red"
             ]
         },
     ])
@@ -54,35 +53,6 @@ inquirer
 
     });
 
-
-
-// Format input data like we need it
-function formatData(data) {
-    // Create a maps link if location was specified 
-    if (data.location) {
-        data.map = "https://www.google.com/maps/place/" +
-            data.location.replace(/\s/g, "+");
-    } else {
-        data.location = "No Location Provided";
-        data.map = "#";
-    }
-
-    // Set a default value for name if null
-    if (!data.name) {
-        data.name = data.login;
-    }
-    // Set a default value for bio if null
-    if (!data.bio) {
-        data.bio = "";
-    }
-    // Set a default value for blog if null.
-    if (!data.blog) {
-        data.blog = "#";
-    } else if (!data.blog.includes("http")) { // Add https:// if http not found
-        data.blog = "https://" + data.blog;
-    }
-}
-
 //======================================================================
 ///// Function to use the responses 
 //======================================================================
@@ -108,7 +78,7 @@ function ghquery(queryUrl) {
             return data;
 
         });
-};
+}
 
 //======================================================================
 ///// Here we get the user's Github stars
