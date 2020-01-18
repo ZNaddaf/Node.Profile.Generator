@@ -64,8 +64,28 @@ THEN a PDF profile is generated
 ```
 - - -
 
-## Screenshot:
+## Screenshots:
 
-Example generated PDF:
+#### PDF Examples
+Green Example generated PDF:
 <br>
-<img src="assets/ScreenShot.png" width="300px">  
+<img src="assets/Images/GreenScreenShot.png" width="300px">  
+<br>
+Blue Example generated PDF:
+<br>
+<img src="assets/Images/BlueScreenShot.png" width="300px">  
+<br>
+Pink Example generated PDF:
+<br>
+<img src="assets/Images/PinkScreenShot.png" width="300px">  
+<br>
+Red Example generated PDF:
+<br>
+<img src="assets/Images/RedScreenShot.png" width="300px">  
+<br>
+
+#### User Input Example
+Query results:
+<br>
+<img src="assets/Images/UserInputScreenShot.png" width="300px">  
+<br>

@@ -102,7 +102,6 @@ function getHTML(userInput, responseStars, data) {
            h6 {
            font-size: 1.2em;
            }
-           
            .photo-header {
            position: relative;
            margin: 0 auto;
@@ -110,14 +109,13 @@ function getHTML(userInput, responseStars, data) {
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
+           text-align: center;
            background-color: ${colors[userInput.color].headerBackground};
            color: ${colors[userInput.color].headerColor};
            padding: 10px;
            width: 95%;
            border-radius: 6px;
-           text-align: center;
            }
-
            .photo-header img {
            width: 250px;
            height: 250px;
@@ -154,6 +152,7 @@ function getHTML(userInput, responseStars, data) {
            padding: 50px;
            padding-left: 100px;
            padding-right: 100px;
+           text-align: center;
            }
   
            .row {
