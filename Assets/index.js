@@ -43,11 +43,12 @@ inquirer
             ghQueryStars(queryStarUrl).then(function (responseStars) {
 
                 var options = { format: 'Letter' };
+                data.responseStars = responseStars,
 
-                pdf.create(HTMLGenerator.getHTML(userInput, responseStars, data), options).toFile(`./${userInput.username}.pdf`, function (err, res) {
-                    if (err) return console.log(err);
-                    console.log(res);
-                });
+                    pdf.create(HTMLGenerator.getHTML(userInput, responseStars, data), options).toFile(`./${userInput.username}.pdf`, function (err, res) {
+                        if (err) return console.log(err);
+                        console.log(res);
+                    });
             })
         })
 
@@ -66,6 +67,7 @@ function ghquery(queryUrl) {
 
                 profileImg: (response.data.avatar_url + ".png"),
                 gitHubUsername: (response.data.login),
+                fullName: (response.data.name),
                 userCity: (response.data.location),
                 userGitHubProfile: (response.data.html_url),
                 userBlog: (response.data.blog),
@@ -74,6 +76,15 @@ function ghquery(queryUrl) {
                 userFollowers: (response.data.followers),
                 userFollowing: (response.data.following)
             };
+            if (!data.userCity) {
+                data.userCity = "Wandering Gypsy";
+            }
+            if (!data.userBio) {
+                data.userBio = "Welcome to my Code!";
+            }
+            if (!data.userBlog) {
+                data.userBlog = "I'm still working on my blog ATM";
+            }
 
             return data;
 
