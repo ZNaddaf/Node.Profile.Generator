@@ -68,16 +68,16 @@ THEN a PDF profile is generated
 
 #### PDF Examples
 Green Example generated PDF:
-* ![Green Example generated PDF:](/assets/Images/GreenScreenShot.png)
+* ![Green Example generated PDF:](/assets/Images/GreenScreenShot.pdf)
 
 Blue Example generated PDF:
-* ![Blue Example generated PDF:](/assets/Images/BlueScreenShot.png)
+* ![Blue Example generated PDF:](/assets/Images/BlueScreenShot.pdf)
 
 Pink Example generated PDF:
-* ![Pink Example generated PDF:](/assets/Images/PinkScreenShot.png)
+* ![Pink Example generated PDF:](/assets/Images/PinkScreenShot.pdf)
 
 Red Example generated PDF:
-* ![Red Example generated PDF:](/assets/Images/RedScreenShot.png)
+* ![Red Example generated PDF:](/assets/Images/RedScreenShot.pdf)
 
 #### User Input Example
 Query results:
